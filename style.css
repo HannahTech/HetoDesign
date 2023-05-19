@@ -1,0 +1,401 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: Quicksand, Arial, sans-serif;
+}
+
+#logo {
+  z-index: 1;
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  top: 10px;
+  left: 30px;
+  justify-content: center;
+}
+
+#logo img {
+  max-height: 100%;
+  max-width: 100%;
+}
+
+#menu-button {
+  z-index: 1;
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  width: 25px;
+  height: 25px;
+  border: 4px solid white;
+}
+
+#menu-button:hover {
+  background-color: white;
+}
+
+#menu-button.scrolled {
+  border-color: rgb(202, 0, 0);
+}
+
+#menu-box {
+  position: fixed;
+  top: 30px;
+  right: 80px;
+  width: 150px;
+  height: 150px;
+  background-color: rgba(255, 255, 255, 0.75);
+  padding: 20px;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  color: rgb(0, 0, 0);
+}
+
+#menu-box a {
+  text-decoration: none;
+  color: black;
+  display: block;
+  text-align: left;
+  padding: 15px;
+  font-weight: bolder;
+  transition: opacity 0.3s ease, transform 0.5s ease;
+  transform-origin: left center;
+}
+
+#menu-box a:hover {
+  opacity: 50%;
+  transform: scale(1.08);
+  transition: opacity 0.3s ease, transform 0.5s ease;
+}
+
+#menu-box.show {
+  z-index: 1;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
+#menu-box.scrolled {
+  background-color: rgba(202, 0, 0, 0.75);
+}
+
+#menu-box.scrolled a {
+  color: white;
+}
+
+#slider-container {
+  display: flex;
+  overflow: hidden;
+}
+
+.slide {
+  position: relative;
+  height: 85vh;
+  overflow: hidden;
+  animation: slideAnimation 25s infinite;
+  flex: 0 0 100%;
+}
+
+@keyframes slideAnimation {
+  0% {
+    transform: translateX(0%);
+  }
+  33.33% {
+    transform: translateX(-100%);
+  }
+  66.66% {
+    transform: translateX(-200%);
+  }
+  100% {
+    transform: translateX(-200%);
+  }
+}
+
+.slide-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+}
+
+.slide-content {
+  position: absolute;
+  bottom: 10%;
+  width: 50%;
+  padding-left: 5%;
+  color: #fff;
+  text-align: left;
+}
+
+.slide-content h1 {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.slide-content p {
+  font-size: 20px;
+  line-height: 1.5;
+  font-weight: 100;
+}
+
+.slide-content a {
+  text-decoration: none;
+  font-size: 22px;
+  color: rgb(202, 0, 0);
+  text-align: left;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+#description {
+  display: flex;
+  align-items: center;
+}
+
+#description-content {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin: 50px;
+}
+
+#description h1,
+#description p {
+  width: 100%;
+  line-height: 1.5;
+}
+
+#description img {
+  width: 50%;
+}
+
+#works {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  margin: 0 auto;
+}
+
+#works-title h1 {
+  font-size: 40px;
+  margin: 50px;
+  color: rgb(202, 0, 0);
+}
+.box {
+  position: relative;
+  width: 30%;
+  height: 300px;
+}
+
+.box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.box .price {
+  background-color: #fff;
+  color: black;
+  position: absolute;
+  bottom: 5%;
+  left: 0;
+  padding: 5px 50px;
+}
+
+.box ul {
+  display: block;
+  padding: 0;
+  list-style-type: square;
+  background-color: white;
+  text-decoration: none;
+  color: black;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  position: absolute;
+  bottom: -100%;
+  left: 0;
+  width: 100%;
+  margin-top: 5px;
+  transition: bottom 1s ease;
+}
+
+.box:hover ul {
+  bottom: 0;
+}
+
+.box li {
+  padding: 10px;
+}
+
+.box:hover img {
+  /* filter: brightness(50%); */
+  opacity: 0.5;
+}
+
+/* 
+.image-row {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 50px;
+}
+
+.image-container {
+  position: relative;
+  width: 25%;
+  margin-right: 30px;
+  overflow: hidden;
+
+  transition: transform 0.3s;
+}
+
+.image-container img:hover {
+  opacity: 0.5;
+  transform: scale(1.05);
+  transition: opacity 0.3s;
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s;
+} 
+
+.image-overlay {
+  font-size: 18px;
+  position: absolute;
+  bottom: 10%;
+  background-color: white;
+  color: black;
+  opacity: 0;
+  width: 60%;
+  padding: 5px 0px;
+  text-align: left;
+  transition: opacity 0.3s;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.image-container:hover .image-overlay {
+  opacity: 1;
+}
+.image-container:hover img {
+  transform: scale(1.05);
+}
+*/
+
+.image-section {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  overflow: hidden;
+}
+
+.full-width-image {
+  margin-top: 100px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.info-box {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 35%;
+  height: 70%;
+  background-color: rgba(255, 255, 255, 0.85);
+  display: flex;
+  align-items: flex-end;
+  padding-left: 50px;
+}
+
+.form-container {
+  width: 100%;
+  font-size: 20px;
+  color: rgb(202, 0, 0);
+  position: relative;
+  margin-bottom: 70px;
+}
+
+.form-container h2 {
+  margin-bottom: 15px;
+}
+
+.form-container input,
+.form-container textarea {
+  width: 90%;
+  margin-bottom: 10px;
+  padding: 5px;
+  font-family: Quicksand, Arial, sans-serif;
+}
+
+.form-container button {
+  width: 150px;
+  height: 50px;
+  background-color: rgba(255, 255, 255, 0);
+  color: rgb(202, 0, 0);
+  font-size: 20px;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  bottom: -60px;
+  right: 0;
+}
+
+.form-container button:hover {
+  background-color: rgba(202, 0, 0, 1);
+  color: #fff;
+}
+
+.form-container label {
+  font-size: 15px;
+  color: black;
+}
+
+#call {
+  margin: 50px;
+}
+
+#call a {
+  color: rgb(202, 0, 0);
+  display: block;
+  text-decoration: none;
+  font-size: 24px;
+  margin: 20px 0px;
+}
+
+footer {
+  height: 10%;
+  position: relative;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.social-icons a {
+  display: inline-block;
+  margin: 0 20px;
+  font-size: 24px;
+  color: rgb(202, 0, 0);
+}
+
+.footer-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: rgb(202, 0, 0);
+}
+
+footer span {
+  text-align: right;
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+}
